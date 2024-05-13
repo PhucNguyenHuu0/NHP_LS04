@@ -1,0 +1,41 @@
+﻿@model IEnumerable<NHP_Ls04.Models.NHPCustomer>
+@{
+    ViewBag.Title = "ListCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   //var list = ViewBag.list;
+    var list = Model as List<NHP_Ls04.Models.NHPCustomer>;
+    int stt = 0;
+}
+
+<h2>Danh sach khach hang</h2>
+<div class="row">
+    <Table class=" table table - bordered">
+        <thead>
+            <tr>
+                <th>Ma so</th>
+                <th>Ho va Ten</th>
+                <th>Dia chi</th>
+                <th>Nam sinh</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in list)
+            {
+                stt++;
+                <tr>
+                    <td>@stt</td>
+                    <td> @item.CustomerID</td>
+                    <td>@item.FirstName @item.LastName</td>
+                    <td>@item.Address</td>
+                    <td>@item.YearOfBirth</td>
+                    <td>
+                        <a herf=" #"> edit </a>
+                        <a herf =" #"> Delete </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+</div>
+
